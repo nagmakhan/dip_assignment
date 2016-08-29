@@ -1,0 +1,252 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>myCLAHE</title><meta name="generator" content="MATLAB 8.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-08-09"><meta name="DC.source" content="myCLAHE.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#3">Contrast Limited Histogram Equaliation</a></li><li><a href="#4">Plotting</a></li></ul></div><pre class="codeinput"><span class="keyword">function</span> myCLAHE(fname,l,clip_limit)
+</pre><p>This function does contrast-limited adaptive histogram equalization on input image taking  a window of size 'lxl' and clip limit to be 'clip_limit'. Input to this function is the name of the image file (in png format), the extension need not be specified, 'l' and 'clip_limit'. This file saves the output image as 'fname_CLAHE.mat' in images folder. This means the input contrast-limited adaptive histogram equalized version of the input image 'barbara.png' is saved as 'barbara_CLAHE.mat', 'TEM.png' is saved as 'TEM_CLAHE.mat' and 'canyon.png' is saved as 'canyon_CLAHE.mat'. The output images which have used half the clip limit are saved as 'barbara_CLAHE_halflimit.mat', 'TEM_CLAHE_halflimit.mat' and 'canyon_CLAHE_halflimit'</p><p>Function additional input paramters: l = window length clip_limit = clip limit of pdf</p><pre class="codeinput"><span class="comment">%%input image</span>
+in_img=imread([char(fname) <span class="string">'.png'</span>]);
+[x y nchan]= size(in_img);
+</pre><h2>Contrast Limited Histogram Equaliation<a name="3"></a></h2><pre class="codeinput"><span class="keyword">for</span> k=1:1:nchan
+    img=in_img(:,:,k);
+    <span class="keyword">for</span> i=1:x
+        <span class="keyword">for</span> j=1:y
+            c_p = img(i,j); <span class="comment">%center point of window</span>
+            <span class="comment">%Defining window of size lxl around center point</span>
+            a=(i-floor(l/2));
+            b=(i+floor(l/2));
+            c=(j-floor(l/2));
+            d=(j+floor(l/2));
+            <span class="comment">%checking for boundary conditions</span>
+            e=max(a,1):1:min(b,x);
+            f=max(c,1):1:min(d,y);
+
+            img1=img(e,f);
+            [m n] = size(img1);
+            <span class="comment">%calculating values in each bin</span>
+            [values,indexes]=imhist(img1);
+
+            <span class="comment">%checking for values in each bin which is greater than clip</span>
+            <span class="comment">% limit and then re-distributing the excess in each bin equally</span>
+            w = values/(m*n);
+            a=sum(w(find(w&gt;clip_limit))-clip_limit);
+            w(find(w&gt;clip_limit))=clip_limit;
+            w=w+(a/length(w));
+
+            <span class="comment">%calculating cdf as per re-distributed pixels</span>
+            p=cumsum(w);
+
+            q=p*255;
+            q1=round(q);
+
+            <span class="comment">%r=find(indexes==c_p);</span>
+
+            img2(i,j)=uint8(q1(c_p+1));
+        <span class="keyword">end</span>
+
+    <span class="keyword">end</span>
+    out_img(:,:,k)=img2;
+
+<span class="keyword">end</span>
+<span class="comment">%casting image into same class as input image i.e. uint8</span>
+out_img = cast(out_img,<span class="string">'uint8'</span>);
+</pre><h2>Plotting<a name="4"></a></h2><pre class="codeinput"><span class="comment">%defining color scale of 200 colors</span>
+myNumOfColors = 200;
+myColorScale = [ [0:1/(myNumOfColors-1):1]' , <span class="keyword">...</span>
+    [0:1/(myNumOfColors-1):1]' , [0:1/(myNumOfColors-1):1]' ];
+
+figure
+subplot(1,2,1), imagesc(in_img);
+title(<span class="string">'Original Image'</span>)
+colormap (myColorScale);
+<span class="comment">%for color images</span>
+<span class="keyword">if</span> nchan&gt;1
+    colormap <span class="string">jet</span>;
+<span class="keyword">end</span>
+axis <span class="string">equal</span> <span class="string">tight</span>;
+colorbar
+
+subplot(1,2,2), imagesc(out_img);
+title([<span class="string">'Contrast Limited Histogram Equalized Image(CLAHE)'</span>])
+colormap (myColorScale);
+<span class="comment">%for color images</span>
+<span class="keyword">if</span> nchan&gt;1
+    colormap <span class="string">jet</span>;
+<span class="keyword">end</span>
+axis <span class="string">equal</span> <span class="string">tight</span>;
+colorbar
+impixelinfo;
+<span class="comment">%saving the image</span>
+ save([<span class="string">'2/images/'</span> char(fname(7:end)) <span class="string">'_CLAHE_halflimit'</span>],<span class="string">'out_img'</span>)
+</pre><pre class="codeinput"><span class="keyword">end</span>
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+
+function myCLAHE(fname,l,clip_limit)
+%%
+% 
+% This function does contrast-limited adaptive histogram equalization on input image taking
+%  a window of size 'lxl' and clip limit to be 'clip_limit'. Input to this function is the name of the image file
+% (in png format), the extension need not be specified, 'l' and
+% 'clip_limit'. This file saves the
+% output image as 'fname_CLAHE.mat' in images folder. This means the input
+% contrast-limited adaptive histogram equalized version of the input image 'barbara.png' is
+% saved as 'barbara_CLAHE.mat', 'TEM.png' is saved as 'TEM_CLAHE.mat' and
+% 'canyon.png' is saved as 'canyon_CLAHE.mat'. The output images which have
+% used half the clip limit are saved as 'barbara_CLAHE_halflimit.mat',
+% 'TEM_CLAHE_halflimit.mat' and 'canyon_CLAHE_halflimit'
+% 
+% Function additional input paramters:
+% l = window length
+% clip_limit = clip limit of pdf
+
+%%input image
+in_img=imread([char(fname) '.png']);
+[x y nchan]= size(in_img);
+
+
+%% Contrast Limited Histogram Equaliation
+
+for k=1:1:nchan
+    img=in_img(:,:,k);
+    for i=1:x
+        for j=1:y
+            c_p = img(i,j); %center point of window
+            %Defining window of size lxl around center point
+            a=(i-floor(l/2));
+            b=(i+floor(l/2));
+            c=(j-floor(l/2));
+            d=(j+floor(l/2));
+            %checking for boundary conditions
+            e=max(a,1):1:min(b,x);
+            f=max(c,1):1:min(d,y);
+            
+            img1=img(e,f);
+            [m n] = size(img1);
+            %calculating values in each bin
+            [values,indexes]=imhist(img1);
+            
+            %checking for values in each bin which is greater than clip
+            % limit and then re-distributing the excess in each bin equally
+            w = values/(m*n);
+            a=sum(w(find(w>clip_limit))-clip_limit);
+            w(find(w>clip_limit))=clip_limit;
+            w=w+(a/length(w));
+            
+            %calculating cdf as per re-distributed pixels
+            p=cumsum(w);
+            
+            q=p*255;
+            q1=round(q);
+            
+            %r=find(indexes==c_p);
+            
+            img2(i,j)=uint8(q1(c_p+1));
+        end
+        
+    end
+    out_img(:,:,k)=img2;
+    
+end
+%casting image into same class as input image i.e. uint8
+out_img = cast(out_img,'uint8');
+
+
+%% Plotting
+
+%defining color scale of 200 colors
+myNumOfColors = 200;
+myColorScale = [ [0:1/(myNumOfColors-1):1]' , ...
+    [0:1/(myNumOfColors-1):1]' , [0:1/(myNumOfColors-1):1]' ];
+
+figure
+subplot(1,2,1), imagesc(in_img);
+title('Original Image')
+colormap (myColorScale);
+%for color images
+if nchan>1
+    colormap jet;
+end
+axis equal tight;
+colorbar
+
+subplot(1,2,2), imagesc(out_img);
+title(['Contrast Limited Histogram Equalized Image(CLAHE)'])
+colormap (myColorScale);
+%for color images
+if nchan>1
+    colormap jet;
+end
+axis equal tight;
+colorbar
+impixelinfo;
+%saving the image
+ save(['2/images/' char(fname(7:end)) '_CLAHE_halflimit'],'out_img')
+end
+        
+
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,705 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>MyMainScript</title><meta name="generator" content="MATLAB 8.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-08-09"><meta name="DC.source" content="myMainScript.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Report for Question 2 (MyMainScript)</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#2">question 2(a)</a></li><li><a href="#3">question 2(b)</a></li><li><a href="#4">question 2(c)</a></li><li><a href="#5">question 2(d)</a></li></ul><h2>Called Functions</h2><ul><li><a href="#myAHE">myAHE </a></li><li><a href="#myCLAHE">myCLAHE </a></li><li><a href="#myHE">myHE </a></li><li><a href="#myLinearContrastStretching">myLinearContrastStretching </a></li></ul></div><pre>This is the main script which calls all functions pertaining to
+question2.</pre><pre class="codeinput">tic;
+<span class="comment">% Q2</span>
+</pre><h2>question 2(a)<a name="2"></a></h2><pre class="codeinput"><span class="comment">%Doing Linear Contrast Stretching on the images</span>
+myLinearContrastStretching(<span class="string">'2/data/barbara'</span>);
+myLinearContrastStretching(<span class="string">'2/data/TEM'</span>);
+myLinearContrastStretching(<span class="string">'2/data/canyon'</span>);
+</pre><img vspace="5" hspace="5" src="myMainScript_01.png" alt=""> <img vspace="5" hspace="5" src="myMainScript_02.png" alt=""> <img vspace="5" hspace="5" src="myMainScript_03.png" alt=""> <h2>question 2(b)<a name="3"></a></h2><pre class="codeinput"><span class="comment">%Doing Histogram Equalization on the images</span>
+myHE(<span class="string">'2/data/barbara'</span>);
+myHE(<span class="string">'2/data/TEM'</span>);
+myHE(<span class="string">'2/data/canyon'</span>);
+</pre><img vspace="5" hspace="5" src="myMainScript_04.png" alt=""> <img vspace="5" hspace="5" src="myMainScript_05.png" alt=""> <img vspace="5" hspace="5" src="myMainScript_06.png" alt=""> <h2>question 2(c)<a name="4"></a></h2><pre class="codeinput"><span class="comment">%Doing Adpative Histogram Equalization on the images, optimum window size</span>
+myAHE(<span class="string">'2/data/barbara'</span>,160);
+myAHE(<span class="string">'2/data/TEM'</span>,160);
+myAHE(<span class="string">'2/data/canyon'</span>,160);
+
+<span class="comment">%Doing Adpative Histogram Equalization on the images, larger window size</span>
+myAHE(<span class="string">'2/data/barbara'</span>,300);
+myAHE(<span class="string">'2/data/TEM'</span>,300);
+myAHE(<span class="string">'2/data/canyon'</span>,300);
+
+<span class="comment">%Doing Adaptive Histogram Equalization on the images, smaller window size</span>
+myAHE(<span class="string">'2/data/barbara'</span>,50);
+myAHE(<span class="string">'2/data/TEM'</span>,50);
+myAHE(<span class="string">'2/data/canyon'</span>,50);
+</pre>The first three images have AHE done using optimum window size i.e. 160x160.
+The next three images have AHE done using significantly larger window size i.e. 300x300 and the
+last three images have AHE done using significantly smaller window size i.e. 50x50. <pre></pre>
+</pre><img vspace="5" hspace="5" src="myMainScript_07.png" alt="" title="AHE using optimum window"> <img vspace="5" hspace="5" src="myMainScript_08.png" alt="" title="AHE using optimum window"> <img vspace="5" hspace="5" src="myMainScript_09.png" alt=""  title="AHE using optimum window"> <img vspace="5" hspace="5" src="myMainScript_10.png" alt="" title="AHE using significantly larger window"> <img vspace="5" hspace="5" src="myMainScript_11.png" alt=""  title="AHE using significantly larger window"> <img vspace="5" hspace="5" src="myMainScript_12.png" alt="" title="AHE using significantly larger window"><img vspace="5" hspace="5" src="myMainScript_13.png" alt="" title="AHE using significantly smaller window"> <img vspace="5" hspace="5" src="myMainScript_14.png" alt="" title="AHE using significantly smaller window"> <img vspace="5" hspace="5" src="myMainScript_15.png" alt="" title="AHE using significantly smaller window"> <h2>question 2(d)<a name="5"></a></h2><pre class="codeinput"><span class="comment">%Doing CLAHE on the images using optimum parameters</span>
+myCLAHE(<span class="string">'2/data/barbara'</span>,80,0.025);
+myCLAHE(<span class="string">'2/data/TEM'</span>,80,0.025);
+myCLAHE(<span class="string">'2/data/canyon'</span>,80,0.025);
+
+<span class="comment">%Doing CLAHE on the images using same window size but half the clip limit</span>
+myCLAHE(<span class="string">'2/data/barbara'</span>,80,0.0125);
+myCLAHE(<span class="string">'2/data/TEM'</span>,80,0.0125);
+myCLAHE(<span class="string">'2/data/canyon'</span>,80,0.0125);
+
+toc;
+
+</pre><pre class="codeoutput">Elapsed time is 2014.930761 seconds.
+</pre>The first three images have CLAHE done using optimum window size i.e. 80x80 and optimum clip limit i.e. 0.025.
+The next three images have CLAHE done using half the clip limit than what is optimum i.e. 0.0125.  <pre>
+</pre><img vspace="5" hspace="5" src="myMainScript_16.png" alt="" title="CLAHE using optimum clip limit"> <img vspace="5" hspace="5" src="myMainScript_17.png" alt="" title="CLAHE using optimum clip limit"> <img vspace="5" hspace="5" src="myMainScript_18.png" alt="" title="CLAHE using optimum clip limit"> <img vspace="5" hspace="5" src="myMainScript_19.png" alt="" title="CLAHE using half of optimum clip limit"> <img vspace="5" hspace="5" src="myMainScript_20.png" alt="" title="CLAHE using half of optimum clip limit"> <img vspace="5" hspace="5" src="myMainScript_21.png" alt="" title="CLAHE using half of optimum clip limit"> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% MyMainScript
+%%
+% 
+%  This is the main script which calls all functions pertaining to
+%  question2.
+% 
+
+tic;
+% Q2
+
+%% question 2(a)
+%Doing Linear Contrast Stretching on the images
+myLinearContrastStretching('2/data/barbara'); 
+myLinearContrastStretching('2/data/TEM');
+myLinearContrastStretching('2/data/canyon'); 
+
+
+%% question 2(b)
+%Doing Histogram Equalization on the images
+myHE('2/data/barbara'); 
+myHE('2/data/TEM');
+myHE('2/data/canyon'); 
+
+%% question 2(c)
+%Doing Adpative Histogram Equalization on the images, optimum window size
+myAHE('2/data/barbara',160); 
+myAHE('2/data/TEM',160);
+myAHE('2/data/canyon',160); 
+
+%Doing Adpative Histogram Equalization on the images, larger window size
+myAHE('2/data/barbara',300); 
+myAHE('2/data/TEM',300);
+myAHE('2/data/canyon',300); 
+
+%Doing Adaptive Histogram Equalization on the images, smaller window size
+myAHE('2/data/barbara',50); 
+myAHE('2/data/TEM',50);
+myAHE('2/data/canyon',50); 
+
+%% question 2(d)
+%Doing CLAHE on the images using optimum parameters
+myCLAHE('2/data/barbara',80,0.025); 
+myCLAHE('2/data/TEM',80,0.025);
+myCLAHE('2/data/canyon',80,0.025); 
+
+%Doing CLAHE on the images using same window size but half the clip limit
+myCLAHE('2/data/barbara',80,0.0125); 
+myCLAHE('2/data/TEM',80,0.0125);
+myCLAHE('2/data/canyon',80,0.0125); 
+
+toc;
+
+##### SOURCE END #####
+--></body></html>
+<a name="myAHE"></a>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>myAHE</title><meta name="generator" content="MATLAB 8.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-08-09"><meta name="DC.source" content="myAHE.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#3">Loading the image</a></li><li><a href="#4">Adaptive Histogram Equalization</a></li><li><a href="#5">Plotting</a></li></ul></div><pre class="codeinput"><span class="keyword">function</span> myAHE(fname,l)
+</pre>This function does adaptive histogram equalization on input image taking
+a window of size 'lxl'. Input to this function is the name of the image file
+(in png format), the extension need not be specified and 'l'. This file saves the
+output image as 'fname_AHE.mat' in images folder. This means the input
+adaptive histogram equalized version of the input image 'barbara.png' is
+saved as 'barbara_AHE.mat', 'TEM.png' is saved as 'TEM_AHE.mat' and
+'canyon.png' is saved as 'canyon_AHE.mat'
+Output image in which a significantly larger window size has been used
+i.e. 300x300 compared to 160x160 is saved as 'barbara_AHE_large.mat',
+'TEM_AHE_large.mat' and 'canyon_AHE_large.mat'
+Output image in which a significantly smaller window size has been used
+i.e. 50x50 compared to 160x160 is saved as 'barbara_AHE_small.mat',
+'TEM_AHE_small.mat' and 'canyon_AHE_small.mat'</pre><p>Function additional input paramters: l = window length clip_limit = clip limit of pdf</p><h2>Loading the image<a name="3"></a></h2><pre class="codeinput">in_img=imread([char(fname) <span class="string">'.png'</span>]);
+[x y nchan]=size(in_img);
+</pre><h2>Adaptive Histogram Equalization<a name="4"></a></h2><pre class="codeinput"><span class="keyword">for</span> k=1:1:nchan
+    img=in_img(:,:,k);
+    <span class="keyword">for</span> i=1:1:x
+        <span class="keyword">for</span> j=1:1:y
+
+            c_p = img(i,j); <span class="comment">%center point</span>
+            <span class="comment">%calculating window around center point</span>
+            a=(i-floor(l/2));
+            b=(i+floor(l/2));
+            c=(j-floor(l/2));
+            d=(j+floor(l/2));
+
+            <span class="comment">%checking for image boundary conditions</span>
+            e=max(a,1):1:min(b,x);
+            f=max(c,1):1:min(d,y);
+
+            img1=img(e,f);
+
+            <span class="comment">%calculating cdf in each window</span>
+            hist =imhist(img1);
+            cdf=cumsum(hist);
+            cdf= 255*cdf/cdf(end);
+
+            <span class="comment">%Doing mapping to output image as per cdf</span>
+            <span class="keyword">if</span> img(i,j) ==0
+                    new_img(i,j)=0;
+            <span class="keyword">else</span>
+                    new_img(i,j)=cdf(img(i,j));
+             <span class="keyword">end</span>
+
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    out_img(:,:,k)=new_img;
+<span class="keyword">end</span>
+<span class="comment">%casting output image in same class as input i.e. uint8</span>
+out_img = cast(out_img,<span class="string">'uint8'</span>);
+</pre><h2>Plotting<a name="5"></a></h2><pre class="codeinput"><span class="comment">%defining colorscale of 200 colors</span>
+myNumOfColors = 200;
+myColorScale = [ [0:1/(myNumOfColors-1):1]' , <span class="keyword">...</span>
+    [0:1/(myNumOfColors-1):1]' , [0:1/(myNumOfColors-1):1]' ];
+
+figure
+subplot(1,2,1), imagesc(in_img);
+title(<span class="string">'Original Image'</span>)
+colormap (myColorScale);
+<span class="comment">%for color images</span>
+<span class="keyword">if</span> nchan&gt;1
+    colormap <span class="string">jet</span>;
+<span class="keyword">end</span>
+axis <span class="string">equal</span> <span class="string">tight</span>;
+colorbar
+
+subplot(1,2,2), imagesc(out_img);
+title([<span class="string">'Adaptive Histogram Equalized Image(AHE)'</span>])
+colormap (myColorScale);
+<span class="comment">%for color images</span>
+<span class="keyword">if</span> nchan&gt;1
+    colormap <span class="string">jet</span>;
+<span class="keyword">end</span>
+axis <span class="string">equal</span> <span class="string">tight</span>;
+colorbar
+impixelinfo;
+<span class="comment">%saving the image</span>
+ save([<span class="string">'2/images/'</span> char(fname(7:end)) <span class="string">'_AHE_small'</span>],<span class="string">'out_img'</span>)
+</pre><pre class="codeinput"><span class="keyword">end</span>
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015a</a><br></p></div><!--
+\n
+--></body></html>
+<a name="myCLAHE"></a>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>myCLAHE</title><meta name="generator" content="MATLAB 8.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-08-09"><meta name="DC.source" content="myCLAHE.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#3">Contrast Limited Histogram Equaliation</a></li><li><a href="#4">Plotting</a></li></ul></div><pre class="codeinput"><span class="keyword">function</span> myCLAHE(fname,l,clip_limit)
+</pre><p>This function does contrast-limited adaptive histogram equalization on input image taking  a window of size 'lxl' and clip limit to be 'clip_limit'. Input to this function is the name of the image file (in png format), the extension need not be specified, 'l' and 'clip_limit'. This file saves the output image as 'fname_CLAHE.mat' in images folder. This means the input contrast-limited adaptive histogram equalized version of the input image 'barbara.png' is saved as 'barbara_CLAHE.mat', 'TEM.png' is saved as 'TEM_CLAHE.mat' and 'canyon.png' is saved as 'canyon_CLAHE.mat'. The output images which have used half the clip limit are saved as 'barbara_CLAHE_halflimit.mat', 'TEM_CLAHE_halflimit.mat' and 'canyon_CLAHE_halflimit.mat'</p><p>Function additional input paramters: l = window length clip_limit = clip limit of pdf</p><pre class="codeinput"><span class="comment">%%input image</span>
+in_img=imread([char(fname) <span class="string">'.png'</span>]);
+[x y nchan]= size(in_img);
+</pre><h2>Contrast Limited Histogram Equaliation<a name="3"></a></h2><pre class="codeinput"><span class="keyword">for</span> k=1:1:nchan
+    img=in_img(:,:,k);
+    <span class="keyword">for</span> i=1:x
+        <span class="keyword">for</span> j=1:y
+            c_p = img(i,j); <span class="comment">%center point of window</span>
+            <span class="comment">%Defining window of size lxl around center point</span>
+            a=(i-floor(l/2));
+            b=(i+floor(l/2));
+            c=(j-floor(l/2));
+            d=(j+floor(l/2));
+            <span class="comment">%checking for boundary conditions</span>
+            e=max(a,1):1:min(b,x);
+            f=max(c,1):1:min(d,y);
+
+            img1=img(e,f);
+            [m n] = size(img1);
+            <span class="comment">%calculating values in each bin</span>
+            [values,indexes]=imhist(img1);
+
+            <span class="comment">%checking for values in each bin which is greater than clip</span>
+            <span class="comment">% limit and then re-distributing the excess in each bin equally</span>
+            w = values/(m*n);
+            a=sum(w(find(w&gt;clip_limit))-clip_limit);
+            w(find(w&gt;clip_limit))=clip_limit;
+            w=w+(a/length(w));
+
+            <span class="comment">%calculating cdf as per re-distributed pixels</span>
+            p=cumsum(w);
+
+            q=p*255;
+            q1=round(q);
+
+            <span class="comment">%r=find(indexes==c_p);</span>
+
+            img2(i,j)=uint8(q1(c_p+1));
+        <span class="keyword">end</span>
+
+    <span class="keyword">end</span>
+    out_img(:,:,k)=img2;
+
+<span class="keyword">end</span>
+<span class="comment">%casting image into same class as input image i.e. uint8</span>
+out_img = cast(out_img,<span class="string">'uint8'</span>);
+</pre><h2>Plotting<a name="4"></a></h2><pre class="codeinput"><span class="comment">%defining color scale of 200 colors</span>
+myNumOfColors = 200;
+myColorScale = [ [0:1/(myNumOfColors-1):1]' , <span class="keyword">...</span>
+    [0:1/(myNumOfColors-1):1]' , [0:1/(myNumOfColors-1):1]' ];
+
+figure
+subplot(1,2,1), imagesc(in_img);
+title(<span class="string">'Original Image'</span>)
+colormap (myColorScale);
+<span class="comment">%for color images</span>
+<span class="keyword">if</span> nchan&gt;1
+    colormap <span class="string">jet</span>;
+<span class="keyword">end</span>
+axis <span class="string">equal</span> <span class="string">tight</span>;
+colorbar
+
+subplot(1,2,2), imagesc(out_img);
+title([<span class="string">'Contrast Limited Histogram Equalized Image(CLAHE)'</span>])
+colormap (myColorScale);
+<span class="comment">%for color images</span>
+<span class="keyword">if</span> nchan&gt;1
+    colormap <span class="string">jet</span>;
+<span class="keyword">end</span>
+axis <span class="string">equal</span> <span class="string">tight</span>;
+colorbar
+impixelinfo;
+<span class="comment">%saving the image</span>
+ save([<span class="string">'2/images/'</span> char(fname(7:end)) <span class="string">'_CLAHE_halflimit'</span>],<span class="string">'out_img'</span>)
+</pre><pre class="codeinput"><span class="keyword">end</span>
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015a</a><br></p></div><!--
+\n
+--></body></html>
+<a name="myHE"></a>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>myHE</title><meta name="generator" content="MATLAB 8.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-08-09"><meta name="DC.source" content="myHE.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#3">Loading the image</a></li><li><a href="#4">Histogram Equalization</a></li><li><a href="#5">Plotting</a></li></ul></div><pre class="codeinput"><span class="keyword">function</span> myHE(fname)
+</pre><p>This function does histogram equalization on input image. In input the filename (in png format) needs to be specified without any extension.  This file saves the output image as 'fname_equalized.mat' in images folder. This means the input histogram equalized version of the input image 'barbara.png' is saved as 'barbara_equalized.mat', 'TEM.png' is saved as 'TEM_equalized.mat' and 'canyon.png' is saved as 'canyon_equalized.mat'</p><h2>Loading the image<a name="3"></a></h2><pre class="codeinput">    im = imread([char(fname) <span class="string">'.png'</span>]);
+</pre><h2>Histogram Equalization<a name="4"></a></h2><pre class="codeinput">    [nrow ncol nchan] = size(im); <span class="comment">%dimension of image</span>
+    <span class="keyword">for</span> i=1:nchan
+        <span class="comment">%calculating cdf of the image</span>
+        [count x] = imhist(im(:,:,i));
+        cdf_im = cumsum (count);
+        <span class="comment">%normalizing the cdf</span>
+        cdf_im = 255.*cdf_im./max(cdf_im);
+        <span class="comment">%mapping to final image using cdf as mapping function</span>
+        <span class="keyword">for</span> k = 1:ncol
+            <span class="keyword">for</span> l=1:nrow
+                <span class="keyword">if</span> im(l,k,i) ==0
+                    im_equalized(l,k,i) = 0;
+                <span class="keyword">else</span>
+                   im_equalized(l,k,i) = cdf_im(im(l,k,i));
+                <span class="keyword">end</span>
+
+            <span class="keyword">end</span>
+
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    <span class="comment">%making output image as same class as input image i.e. uint8</span>
+    im_equalized = cast(im_equalized,<span class="string">'uint8'</span>);
+</pre><h2>Plotting<a name="5"></a></h2><pre class="codeinput">    myNumOfColors = 200;
+    <span class="comment">%defining color scale of 200 colors</span>
+    myColorScale = [ [0:1/(myNumOfColors-1):1]' , <span class="keyword">...</span>
+[0:1/(myNumOfColors-1):1]' , [0:1/(myNumOfColors-1):1]' ];
+
+    figure
+    subplot(1,2,1), imagesc(im);
+    title(<span class="string">'Original Image'</span>)
+    colormap (myColorScale);
+    <span class="keyword">if</span> nchan&gt;1
+        colormap <span class="string">jet</span>;
+    <span class="keyword">end</span>
+    axis <span class="string">equal</span> <span class="string">tight</span>;
+    colorbar
+    subplot(1,2,2), imagesc(im_equalized);
+    title([<span class="string">'Histogram Equalized Image'</span>])
+    colormap (myColorScale);
+    <span class="keyword">if</span> nchan&gt;1
+        colormap <span class="string">jet</span>;
+    <span class="keyword">end</span>
+    axis <span class="string">equal</span> <span class="string">tight</span>;
+    colorbar
+    impixelinfo;
+    <span class="comment">%saving the image</span>
+    save([<span class="string">'2/images/'</span> char(fname(7:end)) <span class="string">'_equalized'</span>],<span class="string">'im_equalized'</span>)
+</pre><pre class="codeinput"><span class="keyword">end</span>
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015a</a><br></p></div><!--
+\n
+--></body></html>
+<a name="myLinearContrastStretching"></a>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>myLinearContrastStretching</title><meta name="generator" content="MATLAB 8.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-08-09"><meta name="DC.source" content="myLinearContrastStretching.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#3">Loading the image</a></li><li><a href="#4">Image Stretching</a></li><li><a href="#5">Plotting</a></li></ul></div><pre class="codeinput"><span class="keyword">function</span> myLinearContrastStretching(fname)
+</pre><pre>This function maps the pixel intensity values from their current range
+to 0-255. The mapping is done using a linear function, hence the name.
+It accepts the filename as input (only the filename needs to
+be specified, files are assumed to be png). This file saves the
+output image as 'fname_stretched.mat' in images folder. This means the input
+contrast stretched version of the input image 'barbara.png' is
+saved as 'barbara_stretched.mat', 'TEM.png' is saved as 'TEM_stretched.mat' and
+'canyon.png' is saved as 'canyon_stretched.mat'</pre><h2>Loading the image<a name="3"></a></h2><pre class="codeinput">    im = imread([char(fname) <span class="string">'.png'</span>]);
+    im = im2double(im);
+</pre><h2>Image Stretching<a name="4"></a></h2><pre class="codeinput">    [nrow ncol nchan] = size(im); <span class="comment">%dimension of image</span>
+    <span class="keyword">for</span> i=1:nchan;
+        c = min(min(im(:,:,i))); <span class="comment">%min pixel intensity of input image</span>
+        d = max(max(im(:,:,i))); <span class="comment">%max pixel intensity of input image</span>
+        im_stretched(:,:,i) = (im(:,:,i)-c).*(1/(d-c));
+        <span class="comment">%Mapping to output image using a linear function</span>
+    <span class="keyword">end</span>
+</pre><h2>Plotting<a name="5"></a></h2><pre class="codeinput">    myNumOfColors = 200;
+    <span class="comment">%Defining the colorscale with 200 intensities</span>
+    myColorScale = [ [0:1/(myNumOfColors-1):1]' , <span class="keyword">...</span>
+[0:1/(myNumOfColors-1):1]' , [0:1/(myNumOfColors-1):1]' ];
+
+    figure
+    subplot(1,2,1), imagesc(im);
+    title(<span class="string">'Original Image'</span>)
+    colormap (myColorScale);
+    <span class="comment">%For color images</span>
+    <span class="keyword">if</span> nchan&gt;1
+        colormap <span class="string">jet</span>;
+    <span class="keyword">end</span>
+    axis <span class="string">equal</span> <span class="string">tight</span>;
+    colorbar
+    subplot(1,2,2), imagesc(im_stretched);
+    title([<span class="string">'Contrast Stretched Image'</span>])
+    colormap (myColorScale);
+    <span class="keyword">if</span> nchan&gt;1
+        colormap <span class="string">jet</span>;
+    <span class="keyword">end</span>
+    axis <span class="string">equal</span> <span class="string">tight</span>;
+    colorbar
+    impixelinfo;
+    <span class="comment">%Saving the image in .mat format</span>
+    save([<span class="string">'2/images/'</span> char(fname(7:end)) <span class="string">'_stretched'</span>],<span class="string">'im_stretched'</span>)
+</pre><pre class="codeinput"><span class="keyword">end</span>
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015a</a><br></p></div><!--
+\n
+--></body></html>
